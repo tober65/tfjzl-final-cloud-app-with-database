@@ -56,9 +56,9 @@
                 <div id="exam" class="collapse">
                     <div id="exam" class="collapse">
                         <form id="questionform" action="{% url 'onlinecourse:submit' course.id %}" method="POST">
-                            {% for question course.question_set.all %}
+                            {% for question in course.question_set.all %}
                                 <div class="card mt-1">
-                                    <div class="card-header"><h5>{{ question.text }}</h5></div>
+                                    <div class="card-header"><h5>{{ question.content }}</h5></div>
                                     {% csrf_token %}
                                     <div class="form-group">
                                         <!-- Choices components go here -->
@@ -74,6 +74,7 @@
                                     </div>
                                 </div>
                             {% endfor %}
+                            <input class="btn btn-success btn-block" type="submit" value="Submit">
                         </form>
                     </div>
                 </div>
